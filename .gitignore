@@ -41,3 +41,16 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.classpath
+.project
+*.jsdtscope
+*.container
+*.name
+.settings/org.eclipse.wst.common.project.facet.core.xml
+*.component
+build/classes/META-INF/persistence.xml
+*.JPG
+*.gif
+build/classes/servlets/ListOfPlaces.class
+.settings/org.eclipse.jdt.core.prefs
+*.class
