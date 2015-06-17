@@ -30,7 +30,7 @@ public class ListOfPlaces extends HttpServlet {
 		Query query = em
 				.createQuery("select m from Place m order by m.kmFromTbilisi");
 		List<Place> places = query.getResultList();
-		out.println("<table>");
+		out.println("<table style=\"background: white;\">");
 		for (int i = 0; i < places.size(); i++) {
 			out.println("<tr>");
 			for (int j = 0; j < 3; j++) {
@@ -47,5 +47,4 @@ public class ListOfPlaces extends HttpServlet {
 		}
 		out.println("</table>");
 	}
-
 }

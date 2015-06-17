@@ -13,24 +13,29 @@ public class Place {
 	private int id;
 	private String alias;
 	private String name;
-	
+
 	@Column(name = "KM_FROM_TBILISI")
-	private String kmFromTbilisi;
-	
+	private int kmFromTbilisi;
+
 	@Column(name = "TIME_FROM_TBILISI")
 	private String timeFromTbilisi;
-	
+
 	@Column(name = "ACCESS_BY_MINIBUS")
 	private boolean accessByMinibus;
-	
+
 	@Column(name = "SHORT_INFO")
 	private String shortInfo;
+
+	@Column(name = "LARGE_INFO")
+	private String largeInfo;
+
+	private int days;
 
 	@Override
 	public String toString() {
 		return String.format("<h2><a href=\"%s\">%s</a></h2>\n<p>%s...</p>\n"
-				+ "<img id=\"smallImg\" src=\"./images/small/%s.jpg\" >", alias, name,
-				shortInfo, alias);
+				+ "<img id=\"smallImg\" src=\"./images/small/%s.jpg\" >",
+				alias, name, shortInfo, alias);
 	}
 
 	public int getId() {
@@ -57,11 +62,11 @@ public class Place {
 		this.name = name;
 	}
 
-	public String getKmFromTbilisi() {
+	public int getKmFromTbilisi() {
 		return kmFromTbilisi;
 	}
 
-	public void setKmFromTbilisi(String kmFromTbilisi) {
+	public void setKmFromTbilisi(int kmFromTbilisi) {
 		this.kmFromTbilisi = kmFromTbilisi;
 	}
 
@@ -87,6 +92,22 @@ public class Place {
 
 	public void setShortInfo(String shortInfo) {
 		this.shortInfo = shortInfo;
+	}
+
+	public String getLargeInfo() {
+		return largeInfo;
+	}
+
+	public void setLargeInfo(String largeInfo) {
+		this.largeInfo = largeInfo;
+	}
+
+	public int getDays() {
+		return days;
+	}
+
+	public void setDays(int days) {
+		this.days = days;
 	}
 
 }

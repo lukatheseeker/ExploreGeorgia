@@ -12,8 +12,7 @@
             <div id="header">
 			<%@ include file="menu.jsp" %>
 			<div id="logo">
-                <h1>Explore Georgia</h1>
-                <p id="subtitle">All information you need to visit best of our country</p>
+                
             </div>
             </div>
             <jsp:include page="ListOfPlaces" />
