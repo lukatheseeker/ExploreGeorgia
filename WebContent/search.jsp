@@ -15,21 +15,22 @@
 				<form action="search.jsp">
 					<table align="center">
 						<tr>
-							<td colspan="2"><h2 style="color: #F3E14A">Search for Sights</h2></td>
+							<td colspan="2"><h2 style="color: #F3E14A">Search for
+									Sights</h2></td>
 						</tr>
 						<tr>
 							<td id="formtext">Name of place:</td>
-							<td><input type="text" name="name" /></td>
+							<td><input type="text" name="name" value="${param.name}" /></td>
 						</tr>
 						<tr>
 							<td id="formtext">Minimum number of days:</td>
-							<td><input type="text" name="days" /></td>
+							<td><input type="text" name="days" value="${param.days}" /></td>
 						</tr>
 						<tr>
 							<td id="formtext">Accessible by minibus:</td>
-							<td><select name="access">
+							<td><select name="access" value="${param.access}">
+									<option value="0">Not mandatory</option>
 									<option value="1">Yes</option>
-									<option value="0">No</option>
 							</select></td>
 						</tr>
 						<tr>
@@ -41,7 +42,11 @@
 			</div>
 		</div>
 
-		<jsp:include page="ListOfPlaces" />
+		<jsp:include page="ListOfPlaces">
+			<jsp:param name="name" value="${param.name}" />
+			<jsp:param name="days" value="${param.days}" />
+			<jsp:param name="access" value="${param.access}" />
+		</jsp:include>
 	</div>
 </body>
 </html>
