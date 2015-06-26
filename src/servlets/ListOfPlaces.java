@@ -31,7 +31,8 @@ public class ListOfPlaces extends HttpServlet {
 				.createEntityManagerFactory("places");
 		EntityManager em = emf.createEntityManager();
 		String select;
-		if (isEmpty(name) && isEmpty(days) && isEmpty(access)) {
+		if (isEmpty(name) && isEmpty(days)
+				&& (isEmpty(access) || access.equals("0"))) {
 			select = selectAll();
 		} else {
 			select = selectWithParameters(name, days, access);
@@ -48,7 +49,7 @@ public class ListOfPlaces extends HttpServlet {
 		}
 		List<Place> places = query.getResultList();
 		out.println("<table style=\"background: white;\">");
-		for (int i = 0; i < places.size(); i++) {
+		for (int i = 0; i < places.size();) {
 			out.println("<tr>");
 			for (int j = 0; j < 3; j++) {
 				if (i < places.size()) {
@@ -64,6 +65,7 @@ public class ListOfPlaces extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table>");
+		request.getSession().setAttribute("places", places);
 		em.close();
 		emf.close();
 	}
@@ -82,18 +84,18 @@ public class ListOfPlaces extends HttpServlet {
 			sb.append(" m.days<=?");
 			first = false;
 		}
-		if (!isEmpty(days) && access.equals("1")) {
+		if (!isEmpty(access) && access.equals("1")) {
 			if (!first) {
 				sb.append(" and");
 			}
 			sb.append(" m.accessByMinibus=1");
 		}
-		sb.append(" order by m.kmFromTbilisi");
+		//sb.append(" order by m.kmFromTbilisi");
 		return sb.toString();
 	}
 
 	private String selectAll() {
-		return "select m from Place m order by m.kmFromTbilisi";
+		return "select m from Place m";
 	}
 
 	boolean isEmpty(String s) {

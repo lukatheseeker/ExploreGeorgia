@@ -33,9 +33,10 @@ public class Place {
 
 	@Override
 	public String toString() {
-		return String.format("<h2><a href=\"%s\">%s</a></h2>\n<p>%s...</p>\n"
-				+ "<img id=\"smallImg\" src=\"./images/small/%s.jpg\" >",
-				alias, name, shortInfo, alias);
+		return String
+				.format("<h2><a href=\"%s.jsp\">%s</a></h2>\n<p>%s...<a id=\"smallLink\" href=\"%s.jsp\">more</a></p>\n"
+						+ "<img id=\"smallImg\" src=\"./images/small/%s.jpg\" >",
+						alias, name, shortInfo, alias, alias);
 	}
 
 	public int getId() {

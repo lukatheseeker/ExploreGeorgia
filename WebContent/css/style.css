@@ -37,6 +37,15 @@ a {
 	text-decoration: none;
 }
 
+#smallLink {
+	color: #547594;
+	text-decoration: underline;
+}
+
+#smallLink:hover {
+	text-decoration: none;
+}
+
 a:hover {
 	text-decoration: underline;
 }
@@ -53,6 +62,12 @@ a:hover {
 #header {
 	border: 3px solid #E3E3E3;
 	border-top: 3px solid #ECEDB1;
+}
+
+#afterHeader {
+	border-left: 3px solid #E3E3E3;
+	border-right: 3px solid #E3E3E3;
+	border-bottom: 3px solid #E3E3E3;
 }
 
 #menu {
@@ -83,6 +98,17 @@ th, td {
 	padding: 15px;
 }
 
+#largeInfo {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#afterLargeInfo {
+	width: 95%;
+	margin: 0 auto;
+}
+
+}
 #menu ul li a:hover {
 	color: #E7E8CB;
 }
